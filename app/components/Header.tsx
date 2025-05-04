@@ -5,17 +5,19 @@ import Link from 'next/link';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { IoLanguage } from 'react-icons/io5';
 import { useTheme } from '../providers';
+import { translations } from '../translations';
 
 export default function Header() {
   const { theme, language, toggleTheme, toggleLanguage } = useTheme();
+  const t = translations[language];
 
   const handleThemeToggle = () => {
-    console.log('Theme toggle clicked'); // 디버깅용
+    console.log('Theme toggle clicked');
     toggleTheme();
   };
 
   const handleLanguageToggle = () => {
-    console.log('Language toggle clicked'); // 디버깅용
+    console.log('Language toggle clicked');
     toggleLanguage();
   };
 
@@ -37,9 +39,9 @@ export default function Header() {
           </div>
           <div className="flex items-center space-x-4">
             <nav className="hidden md:flex space-x-8">
-              <Link href="#about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">About</Link>
-              <Link href="#services" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Services</Link>
-              <Link href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Contact</Link>
+              <Link href="#about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{t.nav.about}</Link>
+              <Link href="#services" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{t.nav.services}</Link>
+              <Link href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">{t.nav.contact}</Link>
             </nav>
             <button 
               onClick={handleLanguageToggle}
